@@ -1,111 +1,112 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
+@layer base {
+  /* Light Mode - Biru Terang */
+  body {
+    @apply bg-blue-50 text-gray-900 min-h-screen transition-colors duration-300;
+  }
+  
+  /* Dark Mode - Biru Gelap */
+  .dark body {
+    @apply bg-blue-950 text-blue-50;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-600 bg-clip-text text-transparent;
+  }
+  
+  .dark .gradient-text {
+    @apply from-blue-400 via-indigo-400 to-cyan-400;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-lg bg-blue-100/50;
+  }
+  
+  .dark .glass-effect {
+    @apply backdrop-blur-lg bg-blue-900/50 border border-blue-800;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:shadow-blue-500/20;
+  }
+  
+  .dark .card-hover {
+    @apply hover:shadow-blue-400/10;
   }
 }
 
-body {
-  margin: 0;
-}
+@layer utilities {
+  .section-padding {
+    @apply py-20 px-4;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-all duration-200;
+  }
+  
+  .dark .btn-secondary {
+    @apply border-blue-400 text-blue-400 hover:bg-blue-500/10;
+  }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  .card-dark {
+    @apply bg-blue-50/80 backdrop-blur-sm border border-blue-200 rounded-xl hover:border-blue-500/50 transition-all;
+  }
+  
+  .dark .card-dark {
+    @apply bg-blue-900/50 backdrop-blur-sm border border-blue-800 hover:border-blue-500/50;
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+/* Animasi */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-blue-100 dark:bg-blue-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-blue-600 to-cyan-600;
+}
+/* Tambahkan di bagian bawah file */
+@keyframes slideIn {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
   }
 }
-p {
-  margin: 0;
-}
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* Untuk progress bar animation */
+.progress-bar {
+  animation: slideIn 1.5s ease-out forwards;
 }
