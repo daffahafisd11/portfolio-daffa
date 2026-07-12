@@ -19,7 +19,7 @@ const About = ({ data }) => {
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="gradient-text">Tentang Aku</span>
+            <span className="gradient-text">Tentang Saya</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
         </div>

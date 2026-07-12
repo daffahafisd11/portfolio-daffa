@@ -92,7 +92,7 @@ const Portfolio = ({ data }) => {
       <section id="portfolio" className="pt-20 pb-16 px-4 bg-blue-50/30 dark:bg-blue-950/20">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="gradient-text">Karyaku</span>
+            <span className="gradient-text">Karya Saya</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
           <p className="mt-4 text-gray-500 dark:text-gray-400">Belum ada proyek nih. Nanti cek lagi ya! 🚀</p>
@@ -107,7 +107,7 @@ const Portfolio = ({ data }) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">Karyaku</span>
+              <span className="gradient-text">Karya Saya</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
             <p className="mt-4 text-gray-500 dark:text-gray-400">Klik proyek buat lihat detailnya 😊</p>
