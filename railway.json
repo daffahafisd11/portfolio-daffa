@@ -2,7 +2,10 @@
   "builds": [
     {
       "src": "frontend",
-      "use": "@railway/static"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/dist"
+      }
     },
     {
       "src": "backend",
@@ -15,8 +18,8 @@
       "dest": "backend/api"
     },
     {
-      "src": "/*",
-      "dest": "frontend/dist"
+      "src": "/(.*)",
+      "dest": "frontend/dist/index.html"
     }
   ]
 }
