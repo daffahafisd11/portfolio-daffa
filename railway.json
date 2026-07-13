@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "frontend",
+      "use": "@railway/static"
+    },
+    {
+      "src": "backend",
+      "use": "@railway/php"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/*",
+      "dest": "backend/api"
+    },
+    {
+      "src": "/*",
+      "dest": "frontend/dist"
+    }
+  ]
+}
